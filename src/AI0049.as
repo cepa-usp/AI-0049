@@ -18,6 +18,7 @@
 	import flash.display.SimpleButton;
 	import cepa.utils.MouseMotionData;
 	import flash.utils.clearInterval;
+	import flash.utils.getQualifiedClassName;
 	import flash.utils.getTimer;
 	import flash.utils.Timer;
 	import pipwerks.SCORM;
@@ -139,7 +140,7 @@
 			showArrow(null);
 			resposta.text = "";
 			veiculo.x = 345;
-			veiculo.y = 400,6;
+			veiculo.y = 400;;
 			veiculo.scaleX = 0.5;
 			avisoA = avisoB = false;
 			boxResultado.visible = false;
@@ -266,7 +267,7 @@
 		if (speed.x > 0) veiculo.scaleX = 0.5;
 		else if (speed.x < 0) veiculo.scaleX = -0.5;
 		
-		veiculo.y = 400,6;
+		veiculo.y = 400;
 	}
 	
 	private function pickUp(event:MouseEvent):void {
@@ -282,6 +283,7 @@
 	private function dropIt(event:MouseEvent):void {
 		//trace("dropIt", event.target.name);
 		//trace(event.target.name, dragging);
+		veiculo.y = 400;
 		
 		velocidade = speed.x;
 		//trace(velocidade);
@@ -337,7 +339,9 @@
 			return;
 		}
 		
-		if (event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance162" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
+		//trace(getQualifiedClassName(event.target.parent));
+		
+		if (event.target.parent is CaixaTexto || event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
 		
 		if (dragging.name == "veiculo") {
 			removeEventListener(Event.ENTER_FRAME, onEnterFrame2);
@@ -485,7 +489,7 @@
 		private var tutoPos:int;
 		private var tutoSequence:Array = ["Jogue a bicicleta para a direita ou para a esquerda.",
 										  "Ajuste as bandeiras conforme a sua necessidade.",
-										  "Meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.",
+										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.",
 										  "Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar."];
 										  
 		private function iniciaTutorial(e:MouseEvent = null):void 
@@ -496,15 +500,15 @@
 				addChild(balao);
 				balao.visible = false;
 				
-				pointsTuto = 	[new Point(360,230),
-								new Point(485,180),
-								new Point(80,40),
-								new Point(120,470)];
+				pointsTuto = 	[new Point(360,310),
+								new Point(485,265),
+								new Point(530,100),
+								new Point(120,45)];
 								
 				tutoBaloonPos = [[CaixaTexto.BOTTON, CaixaTexto.CENTER],
 								[CaixaTexto.BOTTON, CaixaTexto.LAST],
-								[CaixaTexto.LEFT, CaixaTexto.FIRST],
-								[CaixaTexto.LEFT, CaixaTexto.LAST]];
+								[CaixaTexto.RIGHT, CaixaTexto.CENTER],
+								[CaixaTexto.LEFT, CaixaTexto.FIRST]];
 			}
 			balao.removeEventListener(Event.CLOSE, closeBalao);
 			
