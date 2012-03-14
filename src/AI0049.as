@@ -446,11 +446,11 @@
 		
 		// Limita a posicao da seta1 até a posição da seta2 e vice-versa
 		if (dragging is Seta1 && dragging.x > seta2.x) {
-			dragging.pos.text = lastText;
+			dragging.pos.text = seta2.pos.text;
 			dragging.x = seta2.x;
 		}
 		if (dragging is Seta2 && dragging.x < seta1.x) {
-			dragging.pos.text = lastText;
+			dragging.pos.text = seta1.pos.text;
 			dragging.x = seta1.x;
 		}
 		
