@@ -1,4 +1,4 @@
-package  
+﻿package  
 {
 	import cepa.utils.Cronometer;
 	import flash.display.MovieClip;
@@ -139,7 +139,7 @@ package
 			showArrow(null);
 			resposta.text = "";
 			veiculo.x = 345;
-			veiculo.y = 309,6;
+			veiculo.y = 400,6;
 			veiculo.scaleX = 0.5;
 			avisoA = avisoB = false;
 			boxResultado.visible = false;
@@ -266,7 +266,7 @@ package
 		if (speed.x > 0) veiculo.scaleX = 0.5;
 		else if (speed.x < 0) veiculo.scaleX = -0.5;
 		
-		veiculo.y = 309,6;
+		veiculo.y = 400,6;
 	}
 	
 	private function pickUp(event:MouseEvent):void {
