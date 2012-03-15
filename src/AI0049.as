@@ -1,6 +1,7 @@
 ﻿package  
 {
 	import cepa.utils.Cronometer;
+	import cepa.utils.ToolTip;
 	import flash.display.MovieClip;
 	import flash.display.Stage;
 	import flash.events.Event;
@@ -103,7 +104,8 @@
 			//aboutScreen.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen() } );
 			botoes.creditos.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen(); setChildIndex(aboutScreen, numChildren - 1); } );
 			instructionScreen.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = false; } );
-			botoes.tutorialBtn.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = true; setChildIndex(instructionScreen, numChildren - 1); } );
+			botoes.orientacoesBtn.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = true; setChildIndex(instructionScreen, numChildren - 1); } );
+			botoes.tutorialBtn.addEventListener(MouseEvent.CLICK, iniciaTutorial);
 			
 			cronometro.reset.buttonMode = true;
 			cronometro.start.buttonMode = true;
@@ -126,9 +128,23 @@
 			
 			setChildIndex(veiculo, numChildren - 1);
 			
+			createToolTips();
 			iniciaTutorial();
 			
 			initLMSConnection();
+		}
+		
+		private function createToolTips():void 
+		{
+			var infoTT:ToolTip = new ToolTip(botoes.creditos, "Créditos", 12, 0.8, 100, 0.6, 0.1);
+			var instTT:ToolTip = new ToolTip(botoes.orientacoesBtn, "Orientações", 12, 0.8, 100, 0.6, 0.1);
+			var resetTT:ToolTip = new ToolTip(botoes.resetButton, "Reiniciar", 12, 0.8, 100, 0.6, 0.1);
+			var intTT:ToolTip = new ToolTip(botoes.tutorialBtn, "Reiniciar tutorial", 12, 0.8, 150, 0.6, 0.1);
+			
+			addChild(infoTT);
+			addChild(instTT);
+			addChild(resetTT);
+			addChild(intTT);
 		}
 		
 		private function reseta(e:MouseEvent):void {
@@ -145,7 +161,7 @@
 			avisoA = avisoB = false;
 			boxResultado.visible = false;
 			timeElapsed = 0;
-			cronometro.time.text = "0s";
+			cronometro.time.text = "0";
 			timerPaused = true;
 			
 			seta1.addEventListener(MouseEvent.MOUSE_DOWN, pickUp);
@@ -168,14 +184,14 @@
 		}
 		
 		private function resetaCronometro(e:MouseEvent):void {
-			cronometro.time.text = "0s";
+			cronometro.time.text = "0";
 			cronometer.stop();
 			cronometer.reset();
 			removeEventListener(Event.ENTER_FRAME, onEnterFrame3);
 		}
 		
 		private function onEnterFrame3(e:Event):void {
-			cronometro.time.text = (cronometer.read() / 1000).toFixed(1);
+			cronometro.time.text = (cronometer.read() / 1000).toFixed(1).replace(".",",");
 		}
 		
 	private function drag(e:MouseEvent):void {
@@ -270,13 +286,15 @@
 		veiculo.y = 400;
 	}
 	
+	private var diffClick:Point;
 	private function pickUp(event:MouseEvent):void {
 		//trace("pickUp");
 		//veiculo.removeEventListener(MouseEvent.MOUSE_DOWN, drag);
 		dragging = event.currentTarget as Sprite;
-		dragging.startDrag();
+		//dragging.startDrag();
 		setChildIndex(dragging, numChildren - 1);
 		setChildIndex(veiculo, numChildren - 1);
+		diffClick = new Point(dragging.mouseX, dragging.mouseY);
 		addEventListener(Event.ENTER_FRAME, onEnterFrame);
 	}
 	
@@ -310,6 +328,18 @@
 				dragging.x = ruler.x + ruler.left.width + ruler.base.width;
 				dragging.pos.text = (ruler.base.width / razao1).toFixed(casas1).replace(".",",") + " m";
 				if ((ruler.base.width / razao1) - Math.floor(ruler.base.width / razao1) == 0) dragging.pos.text = (ruler.base.width / razao1).toFixed(0) + " m";
+			}
+			
+			// Limita a posicao da seta1 até a posição da seta2 e vice-versa
+			if (dragging is Seta1 && dragging.x > seta2.x) {
+				dragging.pos.text = seta2.pos.text;
+				dragging.x = seta2.x;
+				trace(dragging.name);
+			}
+			if (dragging is Seta2 && dragging.x < seta1.x) {
+				dragging.pos.text = seta1.pos.text;
+				dragging.x = seta1.x;
+				trace(dragging.name);
 			}
 			
 			if(dragging != null) {
@@ -403,12 +433,12 @@
 			return;
 		}
 		
-		if (ruler.base.mouseX >= 0 && ruler.base.mouseX <= 652 && (ruler.mouseY < 30 || ruler.mouseY > 120) || dragging != null) {
+		if (ruler.base.mouseX - diffClick.x >= 0 && ruler.base.mouseX - diffClick.x <= 652 && (ruler.mouseY < 30 || ruler.mouseY > 120) || dragging != null) {
 			razao1 = CentToPix;
 			dragging.y = ruler.y;
-			if (!onTick) arrow1XPos = ruler.base.mouseX / razao1 - 3;
-			else arrow1XPos = Math.round(ruler.base.mouseX / razao1 - 3);
-			dragging.x = mouseX;
+			if (!onTick) arrow1XPos = (ruler.base.mouseX - diffClick.x) / razao1 - 3;
+			else arrow1XPos = Math.round((ruler.base.mouseX - diffClick.x) / razao1 - 3);
+			dragging.x = mouseX - diffClick.x;
 			dragging.pos.text = (Number((arrow1XPos +1).toFixed(casas1)) - 11).toFixed(casas1).replace(".", ",") + " m";
 		}
 		
@@ -420,9 +450,9 @@
 		if (dragging != null) {
 			razao = razao1;
 			
-			tickProximity = ruler.base.mouseX / razao - Math.floor(ruler.base.mouseX / razao);  // Define a proximidade da seta em relação ao tick da unidade
+			tickProximity = (ruler.base.mouseX - diffClick.x)/ razao - Math.floor((ruler.base.mouseX - diffClick.x) / razao);  // Define a proximidade da seta em relação ao tick da unidade
 			
-			tick = Math.floor(ruler.base.mouseX / razao);  // Define o inteiro da medida onde se encontra a seta
+			tick = Math.floor((ruler.base.mouseX - diffClick.x) / razao);  // Define o inteiro da medida onde se encontra a seta
 			
 			if (tickProximity < 0.15) {  // Aproximação da seta ao tick
 				dragging.x = tick * razao + ruler.left.width;
@@ -454,12 +484,12 @@
 			dragging.x = seta1.x;
 		}
 		
-		if (ruler.base.mouseX < 0 && seta2.x > seta1.x && seta1.x < seta2.x) {  // "Zera" o marcador quando no início da régua
+		if (ruler.base.mouseX - diffClick.x < 0 && seta2.x > seta1.x && seta1.x < seta2.x) {  // "Zera" o marcador quando no início da régua
 			dragging.x = ruler.x + ruler.left.width;
 			dragging.pos.text = "-13 m";
 			return;
 		}
-		if (ruler.base.mouseX >= 650 && seta2.x > seta1.x && seta1.x < seta2.x) {  // Define o marcador ao seu máximo, de acordo com a escala, quando no fim da régua
+		if (ruler.base.mouseX - diffClick.x >= 650 && seta2.x > seta1.x && seta1.x < seta2.x) {  // Define o marcador ao seu máximo, de acordo com a escala, quando no fim da régua
 			dragging.x = 669;
 			dragging.pos.text = "13 m";
 			return;
@@ -489,7 +519,7 @@
 		private var tutoPos:int;
 		private var tutoSequence:Array = ["Jogue a bicicleta para a direita ou para a esquerda.",
 										  "Ajuste as bandeiras conforme a sua necessidade.",
-										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.",
+										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra. (Atenção para o sentido do movimento!)",
 										  "Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar."];
 										  
 		private function iniciaTutorial(e:MouseEvent = null):void 
