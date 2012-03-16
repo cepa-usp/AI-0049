@@ -98,7 +98,7 @@
 			
 			cronometer = new Cronometer();
 			
-			boxResultado.visible = false;
+			boxResultado.gotoAndStop(10);
 			//aboutScreen.visible = false;
 			instructionScreen.visible = false;
 			//aboutScreen.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen() } );
@@ -123,6 +123,7 @@
 			botoes.resetButton.addEventListener(MouseEvent.CLICK, reseta);
 			ok.addEventListener(MouseEvent.CLICK, mostraResultado);
 			resposta.addEventListener(KeyboardEvent.KEY_DOWN, mostraResultado);
+			
 			
 			//showArrow(null);
 			
@@ -256,7 +257,9 @@
 	private function mostraResultado(event):void {
 		if (!(event is MouseEvent)) if (event.keyCode != 13) return;
 		
-		boxResultado.visible = true;
+		boxResultado.gotoAndStop(1);
+		setChildIndex(boxResultado, numChildren - 1);
+		boxResultado.closeButton.addEventListener(MouseEvent.CLICK, function () { boxResultado.play(); } );
 		
 		var respostaAluno:Number = Number(resposta.text.replace(",","."));
 		var respostaEsperada:Number = velocidade / REL_PIX_METROS;
@@ -267,10 +270,10 @@
 			boxResultado.resultado.text = "RESPOSTA CERTA";
 			score = 100;
 		} else {
-			boxResultado.resultado.text = "RESPOSTA ERRADA";
+			boxResultado.resultado.text = "TENTE NOVAMENTE";
 			score = 0;
 		}
-			
+		
 		if(!completed){
 			completed = true;
 			commit();
@@ -371,7 +374,7 @@
 		
 		//trace(getQualifiedClassName(event.target.parent));
 		
-		if (event.target.parent is CaixaTexto || event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
+		if (event.target.parent is CaixaTexto || event.target.parent is FeedBackScreen || event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
 		
 		if (dragging.name == "veiculo") {
 			removeEventListener(Event.ENTER_FRAME, onEnterFrame2);
@@ -519,7 +522,7 @@
 		private var tutoPos:int;
 		private var tutoSequence:Array = ["Jogue a bicicleta para a direita ou para a esquerda.",
 										  "Ajuste as bandeiras conforme a sua necessidade.",
-										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra. (Atenção para o sentido do movimento!)",
+										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra (atenção para o sentido do movimento!).",
 										  "Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar."];
 										  
 		private function iniciaTutorial(e:MouseEvent = null):void 
@@ -651,6 +654,7 @@
 		{
 			if (connected)
 			{
+				scorm.set("cmi.exit", "suspend");
 				// Salva no LMS a nota do aluno.
 				var success:Boolean = scorm.set("cmi.score.raw", score.toString());
 

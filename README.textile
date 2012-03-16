@@ -1,3 +1,5 @@
-h1. Medida de Velocidade
+h1. Medida de velocidade
 
-Atividade Interativa que propõe o cálculo da velocidade
+O objetivo desta atividade interativa é exercitar a medida de velocidade de um objeto: a bicicleta, neste caso. Para isso, pegue-a com o mouse e jogue-a para a direita ou para a esquerda (a velocidade da bicicleta dependerá de quão rápido você a joga). Em seguida, ajuste as bandeiras em posições convenientes e use o cronômetro para medir o tempo gasto pela bicicleta para ir de uma bandeira até a outra. Finalmente, faça o cálculo da velocidade, digite-a no campo à esquerda, no topo da tela, e pressione "ok" para conferir se você acertou. Atenção para a orientação do deslocamento.
+
+obs.: se você jogar a bicicleta muito rapidamente, pode ficar difícil de medir o tempo ou de pegá-la novamente. Caso isto aconteça, use o botão reiniciar, no canto inferior direito da tela.
