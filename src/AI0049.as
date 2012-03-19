@@ -96,15 +96,17 @@
 			rulerSide = 1;
 			doTheTicks();
 			
+			TextField(resposta).restrict = "0123456789,.";
+			
 			cronometer = new Cronometer();
 			
 			boxResultado.gotoAndStop(10);
 			//aboutScreen.visible = false;
 			instructionScreen.visible = false;
 			//aboutScreen.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen() } );
-			botoes.creditos.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen(); setChildIndex(aboutScreen, numChildren - 1); } );
+			botoes.creditos.addEventListener(MouseEvent.CLICK, function () { aboutScreen.openScreen(); setChildIndex(aboutScreen, numChildren - 1); setChildIndex(bordaAtividade, numChildren - 1);} );
 			instructionScreen.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = false; } );
-			botoes.orientacoesBtn.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = true; setChildIndex(instructionScreen, numChildren - 1); } );
+			botoes.orientacoesBtn.addEventListener(MouseEvent.CLICK, function () { instructionScreen.visible = true; setChildIndex(instructionScreen, numChildren - 1); setChildIndex(bordaAtividade, numChildren - 1); } );
 			botoes.tutorialBtn.addEventListener(MouseEvent.CLICK, iniciaTutorial);
 			
 			cronometro.reset.buttonMode = true;
@@ -305,6 +307,8 @@
 	private function dropIt(event:MouseEvent):void {
 		//trace("dropIt", event.target.name);
 		//trace(event.target.name, dragging);
+		if (event.target.name == "botoes") return;
+		
 		veiculo.y = 400;
 		
 		velocidade = speed.x;
@@ -579,7 +583,7 @@
 		private var caixas:Array;
 		private var nTentativas;
 		private var currentScore;
-		private var stringTentativas;
+		private var stringTentativas:String;
 		
 		/**
 		 * @private
@@ -601,6 +605,8 @@
 				var status:String = scorm.get("cmi.completion_status");	
 				//mementoSerialized = String(scorm.get("cmi.suspend_data"));
 				var stringScore:String = scorm.get("cmi.score.raw");
+				
+				stringTentativas = scorm.get("cmi.suspend_data");
 				
 				switch(status)
 				{
