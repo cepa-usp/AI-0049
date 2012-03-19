@@ -268,16 +268,17 @@
 		
 		if (Math.abs(Number(respostaAluno) - respostaEsperada) < Math.abs(respostaEsperada) / MARGEM_ERRO) {
 			boxResultado.resultado.text = "RESPOSTA CERTA";
-			score = 100;
+			currentScore = 100;
 		} else {
 			boxResultado.resultado.text = "TENTE NOVAMENTE";
-			score = 0;
+			currentScore = 0;
 		}
 		
-		if(!completed){
-			completed = true;
-			commit();
-		}
+		nTentativas++;
+		score = (score * (nTentativas - 1) + currentScore) / nTentativas;
+		
+		if (score >= 50) completed = true;
+		commit();
 	}
 	
 	private function keepHorizontal(e:Event):void {
@@ -576,6 +577,9 @@
 		private var pingTimer:Timer;
 		private var mementoSerialized:String = "";
 		private var caixas:Array;
+		private var nTentativas;
+		private var currentScore;
+		private var stringTentativas;
 		
 		/**
 		 * @private
@@ -621,8 +625,12 @@
 				
 				//unmarshalObjects(mementoSerialized);
 				scormExercise = 1;
-				score = Number(stringScore.replace(",", "."));
+				if (stringScore != "") score = Number(stringScore.replace(",", "."));
+				else score = 0;
 				//txNota.text = score.toFixed(1).replace(".", ",");
+				
+				if (stringTentativas != "") nTentativas = int(stringTentativas);
+				else nTentativas = 0;
 				
 				var success:Boolean = scorm.set("cmi.score.min", "0");
 				if (success) success = scorm.set("cmi.score.max", "100");
@@ -655,6 +663,7 @@
 			if (connected)
 			{
 				scorm.set("cmi.exit", "suspend");
+				
 				// Salva no LMS a nota do aluno.
 				var success:Boolean = scorm.set("cmi.score.raw", score.toString());
 
@@ -665,9 +674,8 @@
 				success = scorm.set("cmi.location", scormExercise.toString());
 				
 				// Salva no LMS a string que representa a situação atual da AI para ser recuperada posteriormente.
-				//mementoSerialized = marshalObjects();
-				//success = scorm.set("cmi.suspend_data", mementoSerialized.toString());
-
+				success = scorm.set("cmi.suspend_data", String(nTentativas));
+				
 				if (success)
 				{
 					scorm.save();
