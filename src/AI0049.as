@@ -132,6 +132,7 @@
 			setChildIndex(veiculo, numChildren - 1);
 			
 			createToolTips();
+			createTutorial();
 			iniciaTutorial();
 			
 			initLMSConnection();
@@ -308,6 +309,8 @@
 		//trace("dropIt", event.target.name);
 		//trace(event.target.name, dragging);
 		if (event.target.name == "botoes") return;
+		if (event.target.name == "block") return;
+		if (event.target.name == "background") return;
 		
 		veiculo.y = 400;
 		
@@ -379,7 +382,7 @@
 		
 		//trace(getQualifiedClassName(event.target.parent));
 		
-		if (event.target.parent is CaixaTexto || event.target.parent is FeedBackScreen || event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
+		if (/*event.target.parent is CaixaTexto || */event.target.parent is FeedBackScreen || event.target.name ==  "orientacoesBtn" || event.target.name == "instance23" || event.target.name == "instance31" || event.target.name == "instance35" || event.target.name == "creditos" || event.target.name == "tutorialBtn" || event.target.name == "resetButton" || event.target.name == "resposta" || event.target.name == "ok" || event.target.name == "base" || event.target.name == null || event.target.name == "reset" || event.target.name == "start" || event.target.name == "time" || event.target.name == "boxResultado" || event.target.name == "resultado" || event.target.name == "unit" || event.target.name == "left" || event.target.name == "right" || event.target.name == "instructionScreen" || event.target.name == "aboutScreen" || event.target.name == "instructionButton" || event.target.name == "aboutButton" || event.target.name == "instance13") return;
 		
 		if (dragging.name == "veiculo") {
 			removeEventListener(Event.ENTER_FRAME, onEnterFrame2);
@@ -520,52 +523,23 @@
 	}
 	
 	
+		private var tutorial:Tutorial;
+	private function createTutorial():void
+	{
+		tutorial = new Tutorial();
+		
+		tutorial.adicionarBalao("Veja aqui as prientações.", new Point(578, 445), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
+		tutorial.adicionarBalao("Use o mouse para jogar a bicicleta para a direita ou para a esquerda.", new Point(360, 310), CaixaTextoNova.BOTTOM, CaixaTextoNova.CENTER);
+		tutorial.adicionarBalao("Use o mouse para posicionar as bandeiras conforme a sua necessidade (ou deixe-as como está).", new Point(485,265), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
+		tutorial.adicionarBalao("Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.", new Point(530,100), CaixaTextoNova.RIGHT, CaixaTextoNova.CENTER);
+		tutorial.adicionarBalao("Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar.\nATENÇÃO: o sentido do movimento, para a direita ou para a esquerda, influi no sinal da velocidade.", new Point(120,45), CaixaTextoNova.LEFT, CaixaTextoNova.FIRST);
+	}
+	
+	
 		//Tutorial
-		private var balao:CaixaTexto;
-		private var pointsTuto:Array;
-		private var tutoBaloonPos:Array;
-		private var tutoPos:int;
-		private var tutoSequence:Array = ["Jogue a bicicleta para a direita ou para a esquerda.",
-										  "Ajuste as bandeiras conforme a sua necessidade.",
-										  "Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra (atenção para o sentido do movimento!).",
-										  "Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar."];
-										  
 		private function iniciaTutorial(e:MouseEvent = null):void 
 		{
-			tutoPos = 0;
-			if(balao == null){
-				balao = new CaixaTexto(true);
-				addChild(balao);
-				balao.visible = false;
-				
-				pointsTuto = 	[new Point(360,310),
-								new Point(485,265),
-								new Point(530,100),
-								new Point(120,45)];
-								
-				tutoBaloonPos = [[CaixaTexto.BOTTON, CaixaTexto.CENTER],
-								[CaixaTexto.BOTTON, CaixaTexto.LAST],
-								[CaixaTexto.RIGHT, CaixaTexto.CENTER],
-								[CaixaTexto.LEFT, CaixaTexto.FIRST]];
-			}
-			balao.removeEventListener(Event.CLOSE, closeBalao);
-			
-			balao.setText(tutoSequence[tutoPos], tutoBaloonPos[tutoPos][0], tutoBaloonPos[tutoPos][1]);
-			balao.setPosition(pointsTuto[tutoPos].x, pointsTuto[tutoPos].y);
-			balao.addEventListener(Event.CLOSE, closeBalao);
-			balao.visible = true;
-		}
-		
-		private function closeBalao(e:Event):void 
-		{
-			tutoPos++;
-			if (tutoPos >= tutoSequence.length) {
-				balao.removeEventListener(Event.CLOSE, closeBalao);
-				balao.visible = false;
-			}else {
-				balao.setText(tutoSequence[tutoPos], tutoBaloonPos[tutoPos][0], tutoBaloonPos[tutoPos][1]);
-				balao.setPosition(pointsTuto[tutoPos].x, pointsTuto[tutoPos].y);
-			}
+			tutorial.iniciar(stage, true);
 		}
 		
 	

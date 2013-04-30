@@ -2,17 +2,7 @@ Copying from /d/Projetos/05 - GitHub/AI-0049 to cepa@arquivos.atp.usp.br:/work/P
 building file list ... done
 ./
 AI-0049_SCO.zip
-imsmanifest.xml
-index.html
-js/
-js/ai.js
-js/jquery-1.4.2.min.js
-js/scorm_wrapper.min.js
-js/swfobject.js
-swf/
 swf/AI-0049.swf
-swf/AI_Loader.swf
-swf/expressInstall.swf
 
-sent 185738 bytes  received 3007 bytes  377490.00 bytes/sec
-total size is 323657  speedup is 1.71
+sent 199138 bytes  received 2099 bytes  402474.00 bytes/sec
+total size is 342395  speedup is 1.70
