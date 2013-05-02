@@ -145,12 +145,13 @@ package
 		
 		public function setText(text:String, side:String = null, align:String = null, width:Number = 200):void
 		{
-			texto.text = "";
+			//texto.text = "";
+			texto.htmlText = "";
 			
 			if (width >= minWidth) texto.width = width;
 			else texto.width = minWidth;
 			
-			texto.text = text;
+			texto.htmlText = text;
 			
 			currentWidth = width;
 			if(side != null) sideForArrow = side;

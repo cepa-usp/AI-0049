@@ -63,7 +63,7 @@
 		private var cronometer:Cronometer;
 		
 		// Margem de erro da resposta (em % para + e para -)
-		private const MARGEM_ERRO:int = 10;
+		private const MARGEM_ERRO:Number = 1/10;
 		// Relação pixels/metros
 		private const REL_PIX_METROS:int = 25;
 		private var onTick:Boolean = true;
@@ -96,7 +96,7 @@
 			rulerSide = 1;
 			doTheTicks();
 			
-			TextField(resposta).restrict = "0123456789,.";
+			TextField(resposta).restrict = "0123456789,.\\-";
 			
 			cronometer = new Cronometer();
 			
@@ -264,16 +264,34 @@
 		setChildIndex(boxResultado, numChildren - 1);
 		boxResultado.closeButton.addEventListener(MouseEvent.CLICK, function () { boxResultado.play(); } );
 		
-		var respostaAluno:Number = Number(resposta.text.replace(",","."));
+		var respostaAluno:Number = Number(resposta.text.replace(",", "."));
+		
+		if (isNaN(respostaAluno)) {
+			boxResultado.resultado.text = "Você precisa digitar um número para ser avaliado.\nVerifique se existem caracteres inválidos ou duplicados no campo de resposta.";
+			return;
+		}
+		
 		var respostaEsperada:Number = velocidade / REL_PIX_METROS;
 		
-		trace(respostaEsperada, Math.abs(respostaAluno - respostaEsperada) < Math.abs(respostaEsperada) / MARGEM_ERRO);
+		if (respostaEsperada == 0) {
+			boxResultado.resultado.text = "Você precisa jogar a bicicleta para ser avaliado.";
+			return;
+		}
 		
-		if (Math.abs(Number(respostaAluno) - respostaEsperada) < Math.abs(respostaEsperada) / MARGEM_ERRO) {
-			boxResultado.resultado.text = "RESPOSTA CERTA";
+		trace(respostaEsperada, Math.abs(respostaAluno - respostaEsperada),  Math.abs(respostaEsperada) * MARGEM_ERRO);
+		
+		if (Math.abs(Number(respostaAluno) - respostaEsperada) < Math.abs(respostaEsperada) * MARGEM_ERRO) {
+			boxResultado.resultado.text = "Parabéns! Você sabe como medir a velocidade de um objeto em movimento.\nQue tal experimentar em outras situações? Jogue a bicicleta de novo, desta vez mais rápido ou mais lentamente, mude a posição das bandeiras e meça novamente a velocidade. Você pode repetir esse processo quantas vezes quiser.";
 			currentScore = 100;
-		} else {
-			boxResultado.resultado.text = "TENTE NOVAMENTE";
+		}else {
+			if (Math.abs( -Number(respostaAluno) - respostaEsperada) < Math.abs(respostaEsperada) * MARGEM_ERRO) {
+				boxResultado.resultado.text = "Ops! Você mediu a velocidade corretamente, mas esqueceu de levar em conta o sentido do movimento: o sinal da sua resposta está invertido! Jogue novamente a bicicleta e tome este cuidado na próxima tentativa. Lembre-se: você pode realizar o exercício quantas vezes quiser.";
+			}else if (Math.abs(Math.abs(respostaAluno) - Math.abs(respostaEsperada)) < 2 * Math.abs(respostaEsperada) * MARGEM_ERRO) {
+				boxResultado.resultado.text = "Quase! Talvez a medida do tempo possa ser melhorada. Experimente refazê-la. Lembre-se de considerar também o sinal da velocidade.";
+			}else {
+				boxResultado.resultado.text = "Não é esta a velocidade da bicicleta! :( Confira a medida do tempo, a distância entre as bandeiras, o sentido do movimento (positivo para a direita e negativo para a esquerda) e a sua conta. Lembre-se: você pode refazer o exercício quantas vezes quiser.";
+			}
+			
 			currentScore = 0;
 		}
 		
@@ -532,7 +550,7 @@
 		tutorial.adicionarBalao("Use o mouse para jogar a bicicleta para a direita ou para a esquerda.", new Point(360, 310), CaixaTextoNova.BOTTOM, CaixaTextoNova.CENTER);
 		tutorial.adicionarBalao("Use o mouse para posicionar as bandeiras conforme a sua necessidade (ou deixe-as como está).", new Point(485,265), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
 		tutorial.adicionarBalao("Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.", new Point(530,100), CaixaTextoNova.RIGHT, CaixaTextoNova.CENTER);
-		tutorial.adicionarBalao("Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar.\nATENÇÃO: o sentido do movimento, para a direita ou para a esquerda, influi no sinal da velocidade.", new Point(120,45), CaixaTextoNova.LEFT, CaixaTextoNova.FIRST);
+		tutorial.adicionarBalao("Calcule a velocidade da bicicleta e digite-a aqui. Pressione \"OK\" para verificar.\n<b>Atenção: o sentido do movimento, para a direita ou para a esquerda, influi no sinal da velocidade</b>.", new Point(120,45), CaixaTextoNova.LEFT, CaixaTextoNova.FIRST);
 	}
 	
 	
