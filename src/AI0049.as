@@ -546,7 +546,7 @@
 	{
 		tutorial = new Tutorial();
 		
-		tutorial.adicionarBalao("Veja aqui as prientações.", new Point(578, 445), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
+		tutorial.adicionarBalao("Veja aqui as orientações.", new Point(578, 445), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
 		tutorial.adicionarBalao("Use o mouse para jogar a bicicleta para a direita ou para a esquerda.", new Point(360, 310), CaixaTextoNova.BOTTOM, CaixaTextoNova.CENTER);
 		tutorial.adicionarBalao("Use o mouse para posicionar as bandeiras conforme a sua necessidade (ou deixe-as como está).", new Point(485,265), CaixaTextoNova.BOTTOM, CaixaTextoNova.LAST);
 		tutorial.adicionarBalao("Com a ajuda deste cronômetro, meça o tempo que a bicicleta leva para ir de uma bandeira até a outra.", new Point(530,100), CaixaTextoNova.RIGHT, CaixaTextoNova.CENTER);
