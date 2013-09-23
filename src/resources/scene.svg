@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Creator: CorelDRAW -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xml:space="preserve"
+   width="100%"
+   height="100%"
+   style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+   viewBox="0 0 70 20"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="scene.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
+   id="metadata174"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><sodipodi:namedview
+   inkscape:window-height="844"
+   inkscape:window-width="1440"
+   inkscape:pageshadow="2"
+   inkscape:pageopacity="0.0"
+   guidetolerance="10.0"
+   gridtolerance="10.0"
+   objecttolerance="10.0"
+   borderopacity="1.0"
+   bordercolor="#666666"
+   pagecolor="#ffffff"
+   id="base"
+   showgrid="false"
+   inkscape:zoom="7.7714286"
+   inkscape:cx="35"
+   inkscape:cy="4.8529412"
+   inkscape:window-x="-4"
+   inkscape:window-y="-4"
+   inkscape:current-layer="Layer_x0020_1" />
+ <defs
+   id="defs4"><inkscape:perspective
+   sodipodi:type="inkscape:persp3d"
+   inkscape:vp_x="0 : 0.5 : 1"
+   inkscape:vp_y="0 : 1000 : 0"
+   inkscape:vp_z="1 : 0.5 : 1"
+   inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+   id="perspective176" />
+  <style
+   type="text/css"
+   id="style6">
+   
+    .str1 {stroke:#1F1A17;stroke-width:0.07055;stroke-linecap:round}
+    .str0 {stroke:#1F1A17;stroke-width:0.14111;stroke-linecap:round}
+    .fil1 {fill:none}
+    .fil2 {fill:#1F1A17}
+    .fil0 {fill:#1F1A17;fill-rule:nonzero}
+    .fnt0 {font-weight:normal;font-size:1.5875;font-family:'Times New Roman'}
+   
+  </style>
+  
+  
+  <image id="bike.def" x="-5.625" y="-7.5" width="11.25" height="7.5" xlink:href="bike.png"/>
+  <image id="start.flag.def" x="-1" y="-13" width="5" height="13" xlink:href="start.jpg"/>
+  <image id="finish.flag.def" x="-1" y="-13" width="5" height="13" xlink:href="finish.jpg"/>
+  
+    
+  
+   <clipPath
+   id="id0">
+    <rect
+   x="3"
+   y="9.67438"
+   width="8"
+   height="5.65124"
+   id="rect9" />
+   </clipPath>
+   <clipPath
+   id="id1">
+    <rect
+   x="50.9679"
+   y="2.5"
+   width="4.9511"
+   height="13"
+   id="rect12" />
+   </clipPath>
+   <clipPath
+   id="id2">
+    <rect
+   x="31"
+   y="2.79594"
+   width="4.9841"
+   height="12.7041"
+   id="rect15" />
+   </clipPath>
+ </defs>
+ 
+ <rect id="background" width="70" height="20" fill="white"/>
+ <!--<image id="background" width="70" height="20" xlink:href="background.jpg"/>-->
+
+    
+
+
+ 
+ <g
+   id="Layer_x0020_1">
+  <metadata
+   id="CorelCorpID_0Corel-Layer" />
+  <g
+   id="g19">
+   <path
+   class="fil0"
+   d="M1 15.4617l0 0.14056 -0.00362 -9e-005 -0.00356 -0.00027 -0.00352 -0.00045 -0.00346 -0.00062 -0.0034 -0.00078 -0.00334 -0.00095 -0.00326 -0.00111 -0.00319 -0.00125 -0.00312 -0.00141 -0.00303 -0.00155 -0.00294 -0.0017 -0.00285 -0.00182 -0.00276 -0.00196 -0.00265 -0.00209 -0.00255 -0.00221 -0.00244 -0.00233 -0.00233 -0.00244 -0.00221 -0.00255 -0.00209 -0.00265 -0.00196 -0.00276 -0.00182 -0.00285 -0.0017 -0.00294 -0.00155 -0.00303 -0.00141 -0.00312 -0.00125 -0.00319 -0.00111 -0.00326 -0.00095 -0.00334 -0.00078 -0.0034 -0.00062 -0.00346 -0.00045 -0.00352 -0.00027 -0.00356 -9e-005 -0.00362 9e-005 -0.00362 0.00027 -0.00356 0.00045 -0.00352 0.00062 -0.00346 0.00078 -0.0034 0.00095 -0.00334 0.00111 -0.00326 0.00125 -0.00319 0.00141 -0.00312 0.00155 -0.00303 0.0017 -0.00294 0.00182 -0.00285 0.00196 -0.00276 0.00209 -0.00265 0.00221 -0.00255 0.00233 -0.00244 0.00244 -0.00233 0.00255 -0.00221 0.00265 -0.00209 0.00276 -0.00196 0.00285 -0.00182 0.00294 -0.0017 0.00303 -0.00155 0.00312 -0.00141 0.00319 -0.00125 0.00326 -0.00111 0.00334 -0.00095 0.0034 -0.00078 0.00346 -0.00062 0.00352 -0.00045 0.00356 -0.00027 0.00362 -9e-005zm67.5055 0.14056l-67.5055 0 0 -0.14056 67.5055 0 0 0.14056zm0.49449 -0.07028l-0.98392 0.42168 0.01277 -0.02635 0.01194 -0.02636 0.01112 -0.02635 0.01029 -0.02636 0.00947 -0.02635 0.00865 -0.02636 0.00782 -0.02635 0.007 -0.02636 0.00618 -0.02635 0.00535 -0.02636 0.00453 -0.02635 0.00371 -0.02636 0.00288 -0.02635 0.00206 -0.02636 0.00124 -0.02635 0.00041 -0.02636 -0.00041 -0.02636 -0.00124 -0.02635 -0.00206 -0.02636 -0.00288 -0.02635 -0.00371 -0.02636 -0.00453 -0.02635 -0.00535 -0.02636 -0.00618 -0.02635 -0.007 -0.02636 -0.00782 -0.02635 -0.00865 -0.02636 -0.00947 -0.02635 -0.01029 -0.02636 -0.01112 -0.02635 -0.01194 -0.02636 -0.01277 -0.02635 0 0 0.98392 0.42168zm-0.49449 0.07028l0 -0.14056 0.00362 9e-005 0.00356 0.00027 0.00352 0.00045 0.00346 0.00062 0.0034 0.00078 0.00334 0.00095 0.00326 0.00111 0.00319 0.00125 0.00312 0.00141 0.00303 0.00155 0.00294 0.0017 0.00285 0.00182 0.00276 0.00196 0.00265 0.00209 0.00255 0.00221 0.00244 0.00233 0.00233 0.00244 0.00221 0.00255 0.00209 0.00265 0.00196 0.00276 0.00182 0.00285 0.0017 0.00294 0.00155 0.00303 0.00141 0.00312 0.00125 0.00319 0.00111 0.00326 0.00095 0.00334 0.00078 0.0034 0.00062 0.00346 0.00045 0.00352 0.00027 0.00356 9e-005 0.00362 -9e-005 0.00362 -0.00027 0.00356 -0.00045 0.00352 -0.00062 0.00346 -0.00078 0.0034 -0.00095 0.00334 -0.00111 0.00326 -0.00125 0.00319 -0.00141 0.00312 -0.00155 0.00303 -0.0017 0.00294 -0.00182 0.00285 -0.00196 0.00276 -0.00209 0.00265 -0.00221 0.00255 -0.00233 0.00244 -0.00244 0.00233 -0.00255 0.00221 -0.00265 0.00209 -0.00276 0.00196 -0.00285 0.00182 -0.00294 0.0017 -0.00303 0.00155 -0.00312 0.00141 -0.00319 0.00125 -0.00326 0.00111 -0.00334 0.00095 -0.0034 0.00078 -0.00346 0.00062 -0.00352 0.00045 -0.00356 0.00027 -0.00362 9e-005z"
+   id="path21" />
+  </g>
+  <line
+   class="fil1 str0"
+   x1="35"
+   y1="15.532"
+   x2="35"
+   y2="16.532"
+   id="line23" />
+  <line
+   class="fil1 str0"
+   x1="31"
+   y1="15.532"
+   x2="31"
+   y2="16.532"
+   id="line25" />
+  <line
+   class="fil1 str0"
+   x1="27"
+   y1="15.532"
+   x2="27"
+   y2="16.532"
+   id="line27" />
+  <line
+   class="fil1 str0"
+   x1="23.0001"
+   y1="15.532"
+   x2="23.0001"
+   y2="16.532"
+   id="line29" />
+  <line
+   class="fil1 str0"
+   x1="19.0001"
+   y1="15.532"
+   x2="19.0001"
+   y2="16.532"
+   id="line31" />
+  <line
+   class="fil1 str0"
+   x1="15.0001"
+   y1="15.532"
+   x2="15.0001"
+   y2="16.532"
+   id="line33" />
+  <line
+   class="fil1 str0"
+   x1="11.0001"
+   y1="15.532"
+   x2="11.0001"
+   y2="16.532"
+   id="line35" />
+  <line
+   class="fil1 str0"
+   x1="7.00014"
+   y1="15.532"
+   x2="7.00014"
+   y2="16.532"
+   id="line37" />
+  <line
+   class="fil1 str0"
+   x1="3.00016"
+   y1="15.532"
+   x2="3.00016"
+   y2="16.532"
+   id="line39" />
+  <line
+   class="fil1 str0"
+   x1="39"
+   y1="15.532"
+   x2="39"
+   y2="16.532"
+   id="line41" />
+  <line
+   class="fil1 str0"
+   x1="43"
+   y1="15.532"
+   x2="43"
+   y2="16.532"
+   id="line43" />
+  <line
+   class="fil1 str0"
+   x1="46.9999"
+   y1="15.532"
+   x2="46.9999"
+   y2="16.532"
+   id="line45" />
+  <line
+   class="fil1 str0"
+   x1="50.9999"
+   y1="15.532"
+   x2="50.9999"
+   y2="16.532"
+   id="line47" />
+  <line
+   class="fil1 str0"
+   x1="54.9999"
+   y1="15.532"
+   x2="54.9999"
+   y2="16.532"
+   id="line49" />
+  <line
+   class="fil1 str0"
+   x1="58.9999"
+   y1="15.532"
+   x2="58.9999"
+   y2="16.532"
+   id="line51" />
+  <line
+   class="fil1 str0"
+   x1="62.9999"
+   y1="15.532"
+   x2="62.9999"
+   y2="16.532"
+   id="line53" />
+  <line
+   class="fil1 str0"
+   x1="66.9998"
+   y1="15.532"
+   x2="66.9998"
+   y2="16.532"
+   id="line55" />
+  <line
+   class="fil1 str1"
+   x1="65"
+   y1="15.532"
+   x2="65"
+   y2="16.032"
+   id="line57" />
+  <line
+   class="fil1 str1"
+   x1="61"
+   y1="15.532"
+   x2="61"
+   y2="16.032"
+   id="line59" />
+  <line
+   class="fil1 str1"
+   x1="57"
+   y1="15.532"
+   x2="57"
+   y2="16.032"
+   id="line61" />
+  <line
+   class="fil1 str1"
+   x1="53.0001"
+   y1="15.532"
+   x2="53.0001"
+   y2="16.032"
+   id="line63" />
+  <line
+   class="fil1 str1"
+   x1="49.0001"
+   y1="15.532"
+   x2="49.0001"
+   y2="16.032"
+   id="line65" />
+  <line
+   class="fil1 str1"
+   x1="45.0001"
+   y1="15.532"
+   x2="45.0001"
+   y2="16.032"
+   id="line67" />
+  <line
+   class="fil1 str1"
+   x1="41.0001"
+   y1="15.532"
+   x2="41.0001"
+   y2="16.032"
+   id="line69" />
+  <line
+   class="fil1 str1"
+   x1="37.0001"
+   y1="15.532"
+   x2="37.0001"
+   y2="16.032"
+   id="line71" />
+  <line
+   class="fil1 str1"
+   x1="33.0002"
+   y1="15.532"
+   x2="33.0002"
+   y2="16.032"
+   id="line73" />
+  <line
+   class="fil1 str1"
+   x1="29.0002"
+   y1="15.532"
+   x2="29.0002"
+   y2="16.032"
+   id="line75" />
+  <line
+   class="fil1 str1"
+   x1="25.0002"
+   y1="15.532"
+   x2="25.0002"
+   y2="16.032"
+   id="line77" />
+  <line
+   class="fil1 str1"
+   x1="21.0002"
+   y1="15.532"
+   x2="21.0002"
+   y2="16.032"
+   id="line79" />
+  <line
+   class="fil1 str1"
+   x1="17.0002"
+   y1="15.532"
+   x2="17.0002"
+   y2="16.032"
+   id="line81" />
+  <line
+   class="fil1 str1"
+   x1="13.0003"
+   y1="15.532"
+   x2="13.0003"
+   y2="16.032"
+   id="line83" />
+  <line
+   class="fil1 str1"
+   x1="9.00028"
+   y1="15.532"
+   x2="9.00028"
+   y2="16.032"
+   id="line85" />
+  <line
+   class="fil1 str1"
+   x1="5.0003"
+   y1="15.532"
+   x2="5.0003"
+   y2="16.032"
+   id="line87" />
+  <line
+   class="fil1 str1"
+   x1="1.00032"
+   y1="15.532"
+   x2="1.00032"
+   y2="16.032"
+   id="line89" />
+  <g
+   transform="matrix(0.999995 0 0 1 3.70012 8.33531)"
+   id="g91">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text93">1</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 7.63621 8.33531)"
+   id="g95">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text97">2</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 11.6691 8.31267)"
+   id="g99">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text101">3</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 15.571 8.33531)"
+   id="g103">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text105">4</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 19.6555 8.31267)"
+   id="g107">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text109">5</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 23.5709 8.31267)"
+   id="g111">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text113">6</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 27.5709 8.30879)"
+   id="g115">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text117">7</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 30.7908 8.31267)"
+   id="g119">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text121">8 m</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -4.56416 8.33531)"
+   id="g123">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text125">-1</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -8.62803 8.33531)"
+   id="g127">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text129">-2</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -12.5951 8.31267)"
+   id="g131">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text133">-3</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -16.6334 8.33531)"
+   id="g135">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text137">-4</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -20.6087 8.31267)"
+   id="g139">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text141">-5</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -24.6303 8.31267)"
+   id="g143">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text145">-6</text>
+
+  </g>
+  <text
+   x="34.6314"
+   y="18.3127"
+   class="fil2 fnt0"
+   id="text147">0</text>
+
+  <g
+   transform="matrix(0.999995 0 0 1 -28.6255 8.30879)"
+   id="g149">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text151">-7</text>
+
+  </g>
+  <g
+   transform="matrix(0.999995 0 0 1 -32.6151 8.31267)"
+   id="g153">
+   <text
+   x="35"
+   y="10"
+   class="fil2 fnt0"
+   id="text155">-8</text>
+
+  </g>
+  
+  <rect id="glass.layer" width="70" height="20" fill="white" opacity="0"/>
+
+  <!-- A bandeira de largada -->
+  <use id="start.flag" xlink:href="#start.flag.def" x="32" y="15.45"/>
+  <text id="start.position" x="32" y="2" text-anchor="middle" class="fil2 fnt0">0 m</text>
+  
+  <!-- A bandeira de chegada -->
+  <use id="finish.flag" xlink:href="#finish.flag.def" x="52" y="15.45"/>
+  <text id="finish.position" x="52" y="2" text-anchor="middle" class="fil2 fnt0">0 m</text>
+
+  <!-- A bicicleta -->
+  <g id="bike.group" transform="translate(5,15)">
+    <use id="bike" xlink:href="#bike.def"/>
+  </g>
+
+ </g>
+</svg>

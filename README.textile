@@ -1,5 +1,10 @@
 h1. Medida de velocidade
 
-O objetivo desta atividade interativa é exercitar a medida de velocidade de um objeto: a bicicleta, neste caso. Para isso, pegue-a com o mouse e jogue-a para a direita ou para a esquerda (a velocidade da bicicleta dependerá de quão rápido você a joga). Em seguida, ajuste as bandeiras em posições convenientes e use o cronômetro para medir o tempo gasto pela bicicleta para ir de uma bandeira até a outra. Finalmente, faça o cálculo da velocidade, digite-a no campo à esquerda, no topo da tela, e pressione "ok" para conferir se você acertou. Atenção para a orientação do deslocamento.
+Esta é a versão original e inacabada, em Java, desta atividade interativa. Veja o branch master para a versão Flash concluída e para mais instruções.
 
-obs.: se você jogar a bicicleta muito rapidamente, pode ficar difícil de medir o tempo ou de pegá-la novamente. Caso isto aconteça, use o botão reiniciar, no canto inferior direito da tela.
+*ATENÇÃO*: não fazer merge deste branch com o master.
+
+h2. Dependencies
+
+* "Batik toolkit":http://xmlgraphics.apache.org/batik/
+* "CEPALib":https://github.com/cepa-usp/cepalib-java
